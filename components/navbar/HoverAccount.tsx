@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import { User } from "next-auth";
 import { signOut } from "next-auth/react";
@@ -19,6 +18,7 @@ import {
 import UserAvatar from "./UserAvatar";
 import { DropdownMenuSeparator } from "../ui/dropdown-menu";
 import { LogOut } from "lucide-react";
+import ClickDiscordId from "../ClickDiscordId";
 
 type Props = {
   user: Pick<User, "name" | "email" | "image">;
@@ -42,7 +42,7 @@ export function HoverAccount({ user }: Props) {
                 )}
               </div>
             </div>
-
+            {/* <ClickDiscordId /> */}
             <DropdownMenuSeparator />
 
               <div className="p-2">

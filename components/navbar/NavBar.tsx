@@ -2,8 +2,6 @@ import { getAuthSession } from "@/lib/nextauth";
 import Link from "next/link";
 import React from "react";
 import SignInButton from "../SignInButton";
-import UserAccountNav from "./UserAccountNav";
-import { NavItemsJobSeekers } from "./NavItems";
 import { HoverAccount } from "./HoverAccount";
 
 
@@ -22,13 +20,11 @@ const NavBar = async () => {
         </Link>
         <div className="flex justify-end">
           <div className="flex mr-40">
-        {/* <NavItemsJobSeekers/> */}
         </div>
 
         <div className="flex items-center">
           {session?.user ? (
             <HoverAccount user={session.user} />
-            // <UserAccountNav user={session.user} />
           ) : (
             <SignInButton text={"Sign In"} />
             )}

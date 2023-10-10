@@ -27,41 +27,16 @@ export const authOptions : NextAuthOptions = {
     },
     callbacks: {
         jwt: async ({token}) => {
-            if (token && token.provider === 'discord') {
-                const discordToken = process.env.DISCORD_TOKEN; // Access your Discord token from environment variables 
-                const response = await fetch('https://discord.com/api/users/@me', {
-                    headers: {
-                        Authorization: `Bearer ${discordToken}`,
-                    },
-                });
-
-        if (response.ok) {
-          const discordUserData = await response.json();
-          console.log(discordUserData);
-
-          // Save the Discord user data to the user's database record
-          const db_user = await prisma.user.findFirst({
-            where: {
-              email: token?.email,
-            },
-          });
-
-          if (db_user) {
-            // Update the discordId field with the Discord user ID
-            await prisma.user.update({
-              where: {
-                id: db_user.id,
-              },
-              data: {
-                discordId: discordUserData.id, // Assuming discordUserData has the user's Discord ID
-              },
-            });
-          }
-        }
-      }
-      return token; // Return the token at the end of the callback
-
-    },
+            const db_user = await prisma.user.findFirst({
+                where: {
+                    email: token?.email
+                }
+            })
+            if({db_user}) {
+                token.id = db_user.id
+            }
+            return token
+        },
         session:  ({session, token}) => {
             if(token) {
                 session.user.id = token.id

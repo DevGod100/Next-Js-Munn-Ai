@@ -15,7 +15,8 @@ model Account {
   userId            String
   type              String
   provider          String
-  providerAccountId String
+  providerAccountId  String // discordId
+  // providerAccountId  String   @map(name: "discordId") // Map the providerAccountId to discordId
   refresh_token     String? @db.Text
   access_token      String? @db.Text
   expires_at        Int?
@@ -43,8 +44,13 @@ model User {
   id               String    @id @default(cuid())
   name             String?
   email            String?   @unique
-  emailVerified    DateTime?
+  emailVerified    DateTime?  // needed for planetScale
   image            String?
+
+  discordId        String?  
+  // discordId        String? @map(name: "providerAccountId") // Map the discordId field to providerAccountId 
   accounts         Account[]
   sessions         Session[]
+
+  @@index([discordId], name: "discordId")
 }
