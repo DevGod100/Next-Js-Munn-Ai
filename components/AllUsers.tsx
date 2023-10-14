@@ -9,7 +9,6 @@ export default async function AllUsers() {
     <div>
 
       <pre>{JSON.stringify(allUsers, null, 2)}</pre>
-      {/* <pre>{session}</pre> */}
 
     </div>
   );

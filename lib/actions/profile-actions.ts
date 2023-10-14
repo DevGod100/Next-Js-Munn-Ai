@@ -46,8 +46,38 @@ export async function getAllProviderAccountIds() {
 }
 }
 
-// Usage: Call the function to retrieve all providerAccountIds
-// getAllProviderAccountIds();
+export async function getCurrentProviderAccountId() {
+  try {
+    const session = await getServerSession();
+
+    if (session && session.user?.email) {
+      const email = session.user.email;
+
+      // Find the user by email
+      const user = await prisma.user.findFirst({
+        where: { email: email },
+      });
+
+      if (user) {
+        // Find the account for the user
+        const account = await prisma.account.findFirst({
+          where: {
+            userId: user.id,
+          },
+        });
+
+        if (account) {
+          const DisId = account.providerAccountId;
+          return DisId
+        }
+      }
+    }
+    revalidatePath("/");
+    console.log("Retrieved providerAccountId for the current user successfully!");
+  } catch (error) {
+    console.error('Error retrieving providerAccountId:', error);
+  }
+}
 
 
 
@@ -64,39 +94,40 @@ export async function getAllProviderAccountIds() {
 
 
 
-
-
-        // select: {
-        //   id: true,
-        //   image: true,
-        //   name: true,
-        //   email: true,
-        //   // discordId: true,
-        // },
-
-// export async function UpdateDiscordId() {
-//   try {
-//     const session = await getServerSession();
-    
-//     if (session && session.user?.email) {
-//       const discordProfile = session.user.discordId;
-      
-//       if (discordProfile) {
-//         const email = session.user.email;
+export async function SetDiscordIdtoAccountProviderId() {
+    try {
+      const session = await getServerSession();
+      if (session && session.user?.email) {
+        const email = session.user.email;
+  
+        // Find the user by email
+        const user = await prisma.user.findFirst({
+          where: { email: email },
+        });
         
-//         // Find the user by email and update the Discord ID
-//         const updatedUser = await prisma.user.update({
-//           where: { email: email },
-//           data: {
-//             discordId: discordProfile, // Save the Discord ID to the database
-//           },
-//         });
-
-//         return updatedUser; // Return the updated user data
-//       }
-//     }
-//     console.log("Discord profile or email not found.");
-//   } catch (error) {
-//     console.error("Error updating Discord ID:", error);
-//   }
-// }
+        if (user) {
+          // Find the user's account with the matching userId
+          const account = await prisma.account.findFirst({
+            where: {
+              userId: user.id,
+            },
+          });
+  
+          if (account) {
+            // Update the user's discordId to match the providerAccountId
+            const updatedUser = await prisma.user.update({
+              where: { email: email },
+              data: {
+                discordId: account.providerAccountId,
+              },
+            });
+  
+            return updatedUser; // Return the updated user data
+          }
+        }
+      }
+      console.log("Discord profile, email, user, or account not found.");
+    } catch (error) {
+      console.error("Error updating Discord ID:", error);
+    }
+  }

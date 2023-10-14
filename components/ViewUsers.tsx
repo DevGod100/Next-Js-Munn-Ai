@@ -7,9 +7,7 @@ import {
 import Image from "next/image";
 
 const ViewUsers = () => {
-  const [fullProfile, setFullProfile] = useState<Record<string, any> | null>(
-    null
-  );
+  const [fullProfile, setFullProfile] = useState<Record<string, any> | null>(null);
   const [accounts, setAccounts] = useState<Record<string, any>[] | null>(null);
 
   useEffect(() => {

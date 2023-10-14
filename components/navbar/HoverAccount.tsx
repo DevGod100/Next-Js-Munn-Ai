@@ -17,8 +17,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import UserAvatar from "./UserAvatar";
 import { DropdownMenuSeparator } from "../ui/dropdown-menu";
-import { LogOut } from "lucide-react";
-import ClickDiscordId from "../ClickDiscordId";
+import { ImagePlus, LogOut } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   user: Pick<User, "name" | "email" | "image">;
@@ -26,14 +26,14 @@ type Props = {
 
 export function HoverAccount({ user }: Props) {
   return (
-    <NavigationMenu>
+    <NavigationMenu  >
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>
             <UserAvatar user={user} />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex items-center justify-start gap-2 p-2">
+            <div className="flex items-center justify-start gap-2 p-2 mr-20">
               <div className="flex flex-col space-y-1 leading-none">
                 {user.email && (
                   <p className="w-[200px] truncate text-sm text-zinc-700">
@@ -42,20 +42,28 @@ export function HoverAccount({ user }: Props) {
                 )}
               </div>
             </div>
-            {/* <ClickDiscordId /> */}
             <DropdownMenuSeparator />
 
-              <div className="p-2">
-                <NavigationMenuLink
-                  className="text-red-600 cursor-pointer flex items-center"
-                  onClick={(e: any) => {
-                    e.preventDefault();
-                    signOut().catch(console.error);
-                  }}
-                > Sign out 
-                <LogOut className="w-4 h-4 ml-2"/>
-                </NavigationMenuLink>
-              </div>
+            <div className="p-2">
+              <Link href={'/dashboard'}>
+              <NavigationMenuLink className="text-blue-600 cursor-pointer flex items-center">
+                {" "}
+                Dashboard
+                <ImagePlus className="w-4 h-4 ml-2" />
+              </NavigationMenuLink>
+              </Link>
+              <NavigationMenuLink
+                className="text-red-600 cursor-pointer flex items-center"
+                onClick={(e: any) => {
+                  e.preventDefault();
+                  signOut().catch(console.error);
+                }}
+              >
+                {" "}
+                Sign out
+                <LogOut className="w-4 h-4 ml-2" />
+              </NavigationMenuLink>
+            </div>
 
             <DropdownMenuSeparator />
           </NavigationMenuContent>

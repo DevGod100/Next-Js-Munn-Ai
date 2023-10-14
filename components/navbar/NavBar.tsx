@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import SignInButton from "../SignInButton";
 import { HoverAccount } from "./HoverAccount";
+import UserAvatar from "./UserAvatar";
 
 
 
@@ -15,7 +16,7 @@ const NavBar = async () => {
         {/* Logo */}
         <Link href={"/"} className="flex items-center gap-2">
           <p className="rounded-lg border-2 border-b-4 border-r-4 border-purple-600 px-2 py-1 text-xl font-semibold transition-all hover:-translate-y-[2px] md:block dark:border-white">
-            Munn.<span className="text-purple-800">Ai</span>
+            billion<span className="text-white bg-purple-500 p-1 rounded-md">Pic</span>
           </p>
         </Link>
         <div className="flex justify-end">
@@ -24,7 +25,11 @@ const NavBar = async () => {
 
         <div className="flex items-center">
           {session?.user ? (
-            <HoverAccount user={session.user} />
+            // <HoverAccount user={session.user} />
+            <Link href={'/dashboard'}>
+            <UserAvatar user={session.user} />
+              
+            </Link>
           ) : (
             <SignInButton text={"Sign In"} />
             )}
