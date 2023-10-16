@@ -39,10 +39,6 @@ const ViewUsers = () => {
               <strong>{key}:</strong> {value}
             </li>
           ))}
-          <p className="font-bold">
-            NO RETRIEVAL MECHANISM FOR MY ID YET:{" "}
-            <span className="bg-yellow-400">1059846969314525214</span>
-          </p>
           {accounts && (
             <div>
               <h1>ACCOUNT DATA:</h1>

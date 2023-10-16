@@ -48,6 +48,7 @@ model User {
   image            String?
 
   discordId        String?  
+  uploadeddiscordid String?  
   // discordId        String? @map(name: "providerAccountId") // Map the discordId field to providerAccountId 
   accounts         Account[]
   sessions         Session[]
