@@ -5,8 +5,6 @@ import SignInButton from "../SignInButton";
 import { HoverAccount } from "./HoverAccount";
 import UserAvatar from "./UserAvatar";
 
-
-
 const NavBar = async () => {
   const session = await getAuthSession();
 
@@ -15,25 +13,27 @@ const NavBar = async () => {
       <div className="flex items-center justify-between h-full gap-2 px-8 mx-auto max-w-7xl">
         {/* Logo */}
         <Link href={"/"} className="flex items-center gap-2">
-          <p className="rounded-lg border-2 border-b-4 border-r-4 border-purple-600 px-2 py-1 text-xl font-semibold transition-all hover:-translate-y-[2px] md:block dark:border-white">
-            billion<span className="text-white bg-purple-500 p-1 rounded-md">Pic</span>
-          </p>
+            <p className="rounded-lg border-2 border-b-4 border-r-4 border-purple-600 px-2 py-1 text-xl font-semibold transition-all hover:-translate-y-[2px] md:block dark:border-white">
+              billion
+              <span className="text-white bg-purple-500 p-1 rounded-md">
+                Pic
+              </span>
+            </p>
+         
         </Link>
         <div className="flex justify-end">
-          <div className="flex mr-40">
-        </div>
+          <div className="flex mr-40"></div>
 
-        <div className="flex items-center">
-          {session?.user ? (
-            // <HoverAccount user={session.user} />
-            <Link href={'/dashboard'}>
-            <UserAvatar user={session.user} />
-              
-            </Link>
-          ) : (
-            <SignInButton text={"Sign In"} />
+          <div className="flex items-center">
+            {session?.user ? (
+              // <HoverAccount user={session.user} />
+              // <Link href={'/dashboard'}>
+              <UserAvatar user={session.user} />
+            ) : (
+              // </Link>
+              <SignInButton text={"Sign Up"} className="bg-purple-600" />
             )}
-        </div>
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ type Props = {
 
 const UserAvatar = ({user}: Props) => {
   return (
-    <Avatar>
+    <Avatar >
         {user?.image ? (
            <div className='relative w-full h-full aspect-square transition-transform hover:scale-110'>
             <Image

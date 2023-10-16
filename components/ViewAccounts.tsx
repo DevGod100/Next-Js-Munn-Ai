@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import {
-    getAccount, getAllProviderAccountIds,
+     getAllProviderAccountIds,
 } from "@/lib/actions/profile-actions";
 
 const ViewAccounts = () => {

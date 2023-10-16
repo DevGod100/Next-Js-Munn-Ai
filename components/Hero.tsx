@@ -4,36 +4,63 @@ import SignInButton from "./SignInButton";
 import { HoverAccount } from "./navbar/HoverAccount";
 import Link from "next/link";
 
-const Hero = async() => {
+const Hero = async () => {
   const session = await getAuthSession();
 
   return (
-<section className="bg-white dark:bg-gray-900">
-    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+    <section className="bg-white ">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         <p className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-purple-500 rounded-full ">
-        {/* <span className="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span>  */}
-            <span className="pl-2 text-sm font-medium text-white">Soon offering enterprise solutions</span> 
-            {/* <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg> */}
+          {/* <span className="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span>  */}
+          <span className="pl-2 text-sm font-medium text-white">
+            {/* Soon offering enterprise solutions */}Alpha Stage
+          </span>
+          {/* <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg> */}
         </p>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Make<span className="text-green-400">{` `}${` `}</span>from 🫵 MidJourney images</h1>
-        <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Reach millions of people through our partners and earn every time someone uses your images.  </p>
-        <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            {/* <a href="https://discord.com/api/oauth2/authorize?client_id=1159101082736275506&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=identify%20email" className="bg-purple-500 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
+          Make
+          <span className="text-green-400">
+            {` `}${` `}
+          </span>
+          from 🫵 MidJourney images
+        </h1>
+        <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 ">
+          Reach millions of people through our partners and earn every time
+          someone uses your images.{" "}
+        </p>
+        {/* <div className="pt-8 px-4 mx-auto max-w-screen-xl text-center lg:pt-16 lg:px-12">
+          <div className="flex-col text-left">
+            <h2 className=" text-lg font-normal text-gray-700 lg:text-xl sm:px-16 xl:px-48 ">
+              Step 1: <span>Sign up</span>{" "}
+            </h2>
+            <h2 className=" text-lg font-normal text-gray-700 lg:text-xl sm:px-16 xl:px-48 ">
+              Step 2:{" "}
+              <span>
+                ...that's it! 
+              </span>{" "}
+            </h2>
+          </div>
+        </div> */}
+        {/* <a href="https://discord.com/api/oauth2/authorize?client_id=1159101082736275506&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=identify%20email" className="bg-purple-500 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                 Sign Up
                 <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a> */}
-            {session?.user ? (
-            <Link href={'/dashboard'} className="bg-purple-500 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-900">DashBoard<svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></Link>
-            
+        <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+
+        {session?.user ? (
+            // <Link href={'/dashboard'} className="bg-purple-500 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-900">DashBoard<svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></Link>
+            <h2 className="bg-purple-400 text-white rounded-md p-4 text-lg font-normal  lg:text-xl sm:px-10 xl:px-36 ">
+                Thank you for signing up, we will contact you when we have the dahsboard in production.
+            </h2>
 
           ) : (
-            <SignInButton text={"Sign In"} />
+            <SignInButton text={"Sign Up"} className="bg-purple-600 text-xl"/>
             )}
-            {/* <a href="#" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+        </div>
+        {/* <a href="#" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                 <svg className="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
                 Watch video
             </a>   */}
-        </div>
         {/* <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
             <span className="font-semibold text-gray-400 uppercase">FEATURED IN</span>
             <div className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between">
@@ -67,22 +94,17 @@ const Hero = async() => {
                 </a>         
             </div>
         </div>  */}
-    </div>
-</section>
-);
+      </div>
+    </section>
+  );
 };
-   
 
 export default Hero;
 
-
-
-
-
-
 // import {hundredImages} from "../app/assets/hundredImages"
 
-{/* <div className="grid grid-cols-5 gap-1 w-full">
+{
+  /* <div className="grid grid-cols-5 gap-1 w-full">
 {hundredImages.map((image, index) => (
   <img
     key={index}
@@ -93,4 +115,5 @@ export default Hero;
 ))}
 </div>
 );
-}; */}
+}; */
+}
