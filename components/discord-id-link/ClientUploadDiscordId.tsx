@@ -5,37 +5,37 @@ import { Button } from "../ui/button";
 import { Check, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Label } from "../ui/label";
-import {
-  GetUploadedDisId,
-} from "@/lib/actions/profile-actions";
+// import {
+//   GetUploadedDisId,
+// } from "@/lib/actions/profile-actions";
 
 const ClientUploadDiscordId = () => {
-  const [loading, setLoading] = useState(false);
+//   const [loading, setLoading] = useState(false);
 
-  const [oldField, setOldField] = useState<string | null>(null);
+//   const [oldField, setOldField] = useState<string | null>(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      const data = await GetUploadedDisId();
-      setOldField(data?.uploadeddiscordid || "");
-      setLoading(false);
-    }
+//   useEffect(() => {
+//     async function fetchData() {
+//       setLoading(true);
+//       const data = await GetUploadedDisId();
+//       setOldField(data?.uploadeddiscordid || "");
+//       setLoading(false);
+//     }
 
-    fetchData();
-  }, []);
+//     fetchData();
+//   }, []);
 
-  const loadForThreeSec = () => {
-    setLoading(true);
+//   const loadForThreeSec = () => {
+//     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  };
+//     setTimeout(() => {
+//       setLoading(false);
+//     }, 3000);
+//   };
 
   return (
     <div className="py-2">
-      <div className="flex flex-col">
+      {/* <div className="flex flex-col">
         <Label className="text-gray-500 py-2">Discord Id</Label>
         <div className="flex">
           <Input
@@ -61,7 +61,7 @@ const ClientUploadDiscordId = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

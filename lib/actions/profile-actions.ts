@@ -200,40 +200,40 @@ export async function getAllProviderAccountIds() {
 
 
 
-export async function SetDiscordIdtoAccountProviderId() {
-    try {
-      const session = await getServerSession();
-      if (session && session.user?.email) {
-        const email = session.user.email;
+// export async function SetDiscordIdtoAccountProviderId() {
+//     try {
+//       const session = await getServerSession();
+//       if (session && session.user?.email) {
+//         const email = session.user.email;
   
-        // Find the user by email
-        const user = await prisma.user.findFirst({
-          where: { email: email },
-        });
+//         // Find the user by email
+//         const user = await prisma.user.findFirst({
+//           where: { email: email },
+//         });
         
-        if (user) {
-          // Find the user's account with the matching userId
-          const account = await prisma.account.findFirst({
-            where: {
-              userId: user.id,
-            },
-          });
+//         if (user) {
+//           // Find the user's account with the matching userId
+//           const account = await prisma.account.findFirst({
+//             where: {
+//               userId: user.id,
+//             },
+//           });
   
-          if (account) {
-            // Update the user's discordId to match the providerAccountId
-            const updatedUser = await prisma.user.update({
-              where: { email: email },
-              data: {
-                discordId: account.providerAccountId,
-              },
-            });
+//           if (account) {
+//             // Update the user's discordId to match the providerAccountId
+//             const updatedUser = await prisma.user.update({
+//               where: { email: email },
+//               data: {
+//                 discordId: account.providerAccountId,
+//               },
+//             });
   
-            return updatedUser; // Return the updated user data
-          }
-        }
-      }
-      console.log("Discord profile, email, user, or account not found.");
-    } catch (error) {
-      console.error("Error updating Discord ID:", error);
-    }
-  }
+//             return updatedUser; // Return the updated user data
+//           }
+//         }
+//       }
+//       console.log("Discord profile, email, user, or account not found.");
+//     } catch (error) {
+//       console.error("Error updating Discord ID:", error);
+//     }
+//   }

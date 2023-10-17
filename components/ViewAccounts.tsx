@@ -10,6 +10,7 @@ const ViewAccounts = () => {
   useEffect(() => {
     async function fetchData() {
       const accountData = await getAllProviderAccountIds();
+      // @ts-ignore
       setAccount(accountData);
     }
 
@@ -20,6 +21,7 @@ const ViewAccounts = () => {
     <div>
     {account &&
       account.map(id => (
+      // @ts-ignore
         <div key={id}>{id}</div>
       ))}
   </div>

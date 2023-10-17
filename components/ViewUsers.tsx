@@ -15,6 +15,7 @@ const ViewUsers = () => {
       const data = await GetFullProfile();
       const accountData = await getAllProviderAccountIds();
       setFullProfile(data);
+      // @ts-ignore
       setAccounts(accountData);
     }
 

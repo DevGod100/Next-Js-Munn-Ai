@@ -7,8 +7,8 @@ const ServerUploadComponent = () => {
     "use server";
     const mFile = formData.get("metadataFile");
 
-    const fileContents = await mFile.text(); // Read file contents as text
-    console.log("File Contents:", fileContents);
+    // const fileContents = await mFile.text(); // Read file contents as text
+    // console.log("File Contents:", fileContents);
 
   }
   return (

@@ -1,17 +1,17 @@
 "use client"
-import { SetDiscordIdtoAccountProviderId } from '@/lib/actions/profile-actions';
+// import { SetDiscordIdtoAccountProviderId } from '@/lib/actions/profile-actions';
 import React, { useEffect, useState } from 'react';
 
 const AccountProviderId = () => {
     const [user, setUser] = useState<Record<string, any> | null>(null);
-    useEffect(() => {
-        async function fetchData() {
-          const DisId = await SetDiscordIdtoAccountProviderId();
-          setUser(DisId);
-        }
+    // useEffect(() => {
+    //     async function fetchData() {
+    //       const DisId = await SetDiscordIdtoAccountProviderId();
+    //       setUser(DisId);
+    //     }
     
-        fetchData();
-      }, []);
+    //     fetchData();
+    //   }, []);
 
   return (
     <div>
