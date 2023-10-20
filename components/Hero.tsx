@@ -34,7 +34,7 @@ const Hero = async () => {
         </div>
           <Separator />
           {session && (
-            <div className="h-screen"><EmailInput /></div>
+            <div><EmailInput /></div>
           )}
       </div>
     </section>
