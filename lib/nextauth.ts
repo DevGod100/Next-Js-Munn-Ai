@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./db";
 import DiscordProvider from "next-auth/providers/discord";
 
-const scopes = ["identify"];
+// const scopes = ["identify"];
 
 declare module 'next-auth' {
     interface Session extends DefaultSession {
@@ -53,7 +53,8 @@ export const authOptions : NextAuthOptions = {
         DiscordProvider({
             clientId: process.env.DISCORD_CLIENT_ID as string,
             clientSecret: process.env.DISCORD_CLIENT_SECRET  as string,
-            authorization: { params: { scope: scopes.join(" ") } },
+            // authorization: { params: { scope: scopes.join(" ") } },
+            authorization: { params: { scope: 'identify' } },
         })
     ]
 }

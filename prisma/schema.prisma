@@ -47,6 +47,8 @@ model User {
   emailVerified    DateTime?  // needed for planetScale
   image            String?
 
+  emailcontact String?
+
   discordId        String?  
   uploadeddiscordid String?  
   // discordId        String? @map(name: "providerAccountId") // Map the discordId field to providerAccountId 

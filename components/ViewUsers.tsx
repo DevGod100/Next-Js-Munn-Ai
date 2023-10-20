@@ -7,7 +7,9 @@ import {
 import Image from "next/image";
 
 const ViewUsers = () => {
-  const [fullProfile, setFullProfile] = useState<Record<string, any> | null>(null);
+  const [fullProfile, setFullProfile] = useState<Record<string, any> | null>(
+    null
+  );
   const [accounts, setAccounts] = useState<Record<string, any>[] | null>(null);
 
   useEffect(() => {
@@ -35,25 +37,21 @@ const ViewUsers = () => {
             alt="- Profile Image -"
           />
 
-          {Object.entries(fullProfile).map(([key, value]) => (
+          {/* {Object.entries(fullProfile).map(([key, value]) => (
             <li key={key}>
               <strong>{key}:</strong> {value}
             </li>
-          ))}
-          {accounts && (
-            <div>
-              <h1>ACCOUNT DATA:</h1>
-              {accounts.map((account, index) => (
-                <div key={index}>
-                  {Object.entries(account).map(([key, value]) => (
-                    <li key={key}>
-                      <strong>{key}:</strong> {value}
-                    </li>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
+          ))} */}
+          <div>
+          <h1>{fullProfile.name}</h1>
+          <h1>{fullProfile.email}</h1>
+          </div>
+          <ul>
+            {accounts.map((accountId, index) => (
+              // @ts-ignore
+              <li key={index}>{accountId}</li>
+            ))}
+          </ul>
         </div>
       ) : (
         <p>Loading...</p>

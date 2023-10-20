@@ -2,7 +2,6 @@ import { getAuthSession } from "@/lib/nextauth";
 import Link from "next/link";
 import React from "react";
 import SignInButton from "../SignInButton";
-import { HoverAccount } from "./HoverAccount";
 import UserAvatar from "./UserAvatar";
 
 const NavBar = async () => {
@@ -31,7 +30,10 @@ const NavBar = async () => {
               <UserAvatar user={session.user} />
             ) : (
               // </Link>
+              <div className="absolute right-4">
               <SignInButton text={"Sign Up"} className="bg-purple-600" />
+              {/* <Link href={"https://discord.com/api/oauth2/authorize?client_id=1159101082736275506&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fdiscord&response_type=code&scope=identify%20email"}>Sign Up</Link> */}
+              </div>
             )}
           </div>
         </div>
