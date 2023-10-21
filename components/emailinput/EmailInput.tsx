@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 
 const EmailInput = () => {
     async function theServerAction(data: FormData) {
+      
       "use server";
       const session = await getServerSession();
       const emailContact = data.get("emailContact") as string;
@@ -29,10 +30,11 @@ const EmailInput = () => {
       }
     }
     return (
-      <div >
+      <div>
         <form action={theServerAction}>
           <ClientSideEmailInput />
         </form>
+        
       </div>
     );
   };
