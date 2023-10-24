@@ -7,17 +7,21 @@ const UnderHero = () => {
             </p>
       <dl className="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
           <div className="flex flex-col items-center justify-center">
-              <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">10M+</dt>
-              <dd className="font-light text-gray-500 ">Images</dd>
+              <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">5M+</dt>
+              <dd className="font-light text-gray-500 ">Midjourney Images</dd>
           </div>
           <div className="flex flex-col items-center justify-center">
               <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">25%</dt>
-              <dd className="font-light text-gray-500 ">Earned by Contributors</dd>
+              <dd className="font-light text-gray-500 ">Royalties</dd>
           </div>
           <div className="flex flex-col items-center justify-center">
+              <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">130M+</dt>
+              <dd className="font-light text-gray-500 ">User Reach</dd>
+          </div>
+          {/* <div className="flex flex-col items-center justify-center">
               <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">$367,897</dt>
               <dd className="font-light text-gray-500 ">*Distributed</dd>
-          </div>
+          </div> */}
           {/* <div className="flex flex-col items-center justify-center">
               <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">1M+</dt>
               <dd className="font-light text-gray-500 ">images</dd>
