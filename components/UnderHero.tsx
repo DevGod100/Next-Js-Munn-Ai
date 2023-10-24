@@ -16,7 +16,7 @@ const UnderHero = () => {
           </div>
           <div className="flex flex-col items-center justify-center">
               <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">$367,897</dt>
-              <dd className="font-light text-gray-500 ">Distributed</dd>
+              <dd className="font-light text-gray-500 ">*Distributed</dd>
           </div>
           {/* <div className="flex flex-col items-center justify-center">
               <dt className="mb-2 text-3xl md:text-4xl font-extrabold text-purple-600">1M+</dt>
